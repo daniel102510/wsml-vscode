@@ -1,0 +1,94 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "WSML",
+  "patterns": [
+    {
+      "include": "#generalKeywords"
+    },
+    {
+      "include": "#functionsKeywords"
+    },
+    {
+      "include": "#secondaryKeywords"
+    },
+    {
+      "include": "#comments"
+    },
+    {
+      "include": "#strings"
+    }
+  ],
+  "repository": {
+    "generalKeywords": {
+      "patterns": [
+        {
+          "name": "support.class.generalKeywords.wsml",
+          "match": "\\b(wsmlVariant|namespace|ontology|concept|instance|relation|relationinstance|axiom|goal|webservice|mediator)\\b"
+        }
+      ]
+    },
+    "functionsKeywords": {
+      "patterns": [
+        {
+          "name": "entity.name.function.functionsKeywords.wsml",
+          "match": "\\b(ofType|hasValue|inverseOf|memberOf)\\b"
+        }
+      ]
+    },
+    "secondaryKeywords": {
+      "patterns": [
+        {
+          "name": "keyword.secondaryKeywords.wsml",
+          "match": "\\b(blank|comment|and|or|implies|impliedBy|equivalent|neg|naf|exists|forall|false|true|assumption|capability|choreography|definedBy|effect|endNonFunctionalProperties|endnfp|ggMediator|impliesType|importsOntology|interface|nonFunctionalProperties|nfp|ooMediator|orchestration|postcondition|precondition|reflexive|sharedVariables|source|subConceptOf|subRelationOf|symmetric|target|transitive|usesMediator|usesService|wgMediator|wwMediator)\\b"
+        }
+      ]
+    },
+    "comments": {
+      "patterns": [
+        {
+          "begin": "/\\*",
+          "captures": {
+            "0": {
+              "name": "punctuation.definition.comment.wsml"
+            }
+          },
+          "end": "\\*/",
+          "name": "comment.block.wsml"
+        },
+        {
+          "begin": "(^\\s+)?(?=//)",
+          "beginCaptures": {
+            "1": {
+              "name": "punctuation.whitespace.comment.leading.wsml"
+            }
+          },
+          "end": "(?!\\G)",
+          "patterns": [
+            {
+              "begin": "//",
+              "beginCaptures": {
+                "0": {
+                  "name": "punctuation.definition.comment.wsml"
+                }
+              },
+              "end": "\\n|(?=\\?>)",
+              "name": "comment.line.double-slash.wsml"
+            }
+          ]
+        }
+      ]
+    },
+    "strings": {
+      "name": "string.quoted.double.wsml",
+      "begin": "\"",
+      "end": "\"",
+      "patterns": [
+        {
+          "name": "constant.character.escape.wsml",
+          "match": "\\\\."
+        }
+      ]
+    }
+  },
+  "scopeName": "source.wsml"
+}

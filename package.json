@@ -1,0 +1,41 @@
+{
+  "name": "wsml",
+  "displayName": "%displayName%",
+  "description": "%description%",
+  "version": "0.0.1",
+  "publisher": "Daniel Lima",
+  "engines": {
+    "vscode": "^1.45.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [
+      {
+        "id": "wsml",
+        "aliases": [
+          "WSML",
+          "wsml"
+        ],
+        "extensions": [
+          ".wsml"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "wsml",
+        "scopeName": "source.wsml",
+        "path": "./syntaxes/wsml.tmLanguage.json"
+      }
+    ],
+    "snippets": [
+      {
+        "language": "wsml",
+        "path": "./snippets/wsml.code-snippets"
+      }
+    ]
+  }
+}
