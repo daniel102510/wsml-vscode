@@ -3,7 +3,7 @@
   "displayName": "%displayName%",
   "description": "%description%",
   "version": "0.0.1",
-  "publisher": "Daniel Lima",
+  "publisher": "DanielLima",
   "engines": {
     "vscode": "^1.45.0"
   },
@@ -37,5 +37,7 @@
         "path": "./snippets/wsml.code-snippets"
       }
     ]
-  }
+  },
+  "dependencies": {},
+  "repository": {"url": "https://github.com/devdaniellima/wsml-vscode"}
 }
