@@ -10,7 +10,7 @@ Provides syntax highlighting and bracket matching for WSML files.
 
 Syntax Highlighting
 
-Image here
+<img src="https://github.com/devdaniellima/wsml-vscode/blob/master/images/Example1.png?raw=true" />
 
 ### Known Issues
 - Developing but functional.
