@@ -6,7 +6,10 @@
       "include": "#generalKeywords"
     },
     {
-      "include": "#functionsKeywords"
+      "include": "#keywordsWithNames"
+    },
+    {
+      "include": "#functionsWithNames"
     },
     {
       "include": "#secondaryKeywords"
@@ -22,16 +25,44 @@
     "generalKeywords": {
       "patterns": [
         {
-          "name": "support.class.generalKeywords.wsml",
-          "match": "\\b(wsmlVariant|namespace|ontology|concept|instance|relation|relationinstance|axiom|goal|webservice|mediator)\\b"
+          "name": "keyword.control.generalKeywords",
+          "match": "\\b(wsmlVariant|namespace)\\b"
         }
       ]
     },
-    "functionsKeywords": {
+    "keywordsWithNames": {
+      "name": "keyword.control.keywordsWithNames",
       "patterns": [
         {
-          "name": "entity.name.function.functionsKeywords.wsml",
-          "match": "\\b(ofType|hasValue|inverseOf|memberOf)\\b"
+          "match": "(ontology|concept|instance|relation|relationinstance|axiom|goal|webservice|mediator)(\\s+)(\\w+)(\\s*)",
+          "captures": {
+            "1": {
+              "name": "keyword.control.keywordsWithNames.key"
+            },
+            "3": {
+              "name": "entity.name.class.keywordsWithNames.value"
+            }
+          }
+        }
+      ]
+    },
+    "functionsWithNames": {
+      "name": "keyword.control.functionsWithNames",
+      "patterns": [
+        {
+          "match": "(memberOf|hasValue|ofType)(\\s+)([a-zA-Z0-9][\\w]+)(\\s*)",
+          "captures": {
+            "1": {
+              "name": "entity.name.function.functionsWithNames.key"
+            },
+            "3": {
+              "name": "entity.name.class.functionsWithNames.value"
+            }
+          }
+        },
+        {
+          "name": "entity.name.function.functionsWithNames.key",
+          "match": "(hasValue|ofType|impliesType)"
         }
       ]
     },
