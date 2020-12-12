@@ -16,7 +16,7 @@ Find `wsml` in the VS Code extensions or launch VS Code, quick open (Ctrl+P), pa
 
 Syntax Highlighting
 
-<img src="https://github.com/devdaniellima/wsml-vscode/blob/master/images/Example1.png?raw=true" />
+<img src="https://github.com/devdaniellima/wsml-vscode/blob/master/images/example.png?raw=true" />
 
 ### Known Issues
 - Developing but functional.

@@ -50,7 +50,7 @@
       "name": "keyword.control.functionsWithNames",
       "patterns": [
         {
-          "match": "(memberOf|hasValue|ofType)(\\s+)([a-zA-Z0-9][\\w]+)(\\s*)",
+          "match": "(memberOf|hasValue|ofType)(\\s+)([a-zA-Z][\\w]+)(\\s*)",
           "captures": {
             "1": {
               "name": "entity.name.function.functionsWithNames.key"

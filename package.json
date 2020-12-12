@@ -2,7 +2,8 @@
   "name": "wsml",
   "displayName": "%displayName%",
   "description": "%description%",
-  "version": "0.0.3",
+  "icon": "images/wsml.png",
+  "version": "0.0.4",
   "publisher": "DanielLima",
   "engines": {
     "vscode": "^1.45.0"
