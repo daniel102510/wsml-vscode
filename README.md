@@ -1,6 +1,6 @@
 # WSML Language Basics
 
-### About
+## About
 
 Provides syntax highlighting and bracket matching for WSML files.
 
@@ -20,7 +20,9 @@ Syntax Highlighting
 
 ### Known Issues
 - Developing but functional.
-- Any problem, please report your problem with the extension in my repository.
+- Any problems, please report this in the extension repository.
 
-### References
-- Icons, syntax and grammar refer to the work submitted in [https://www.w3.org/Submission/WSML/](https://www.w3.org/Submission/WSML/)
+## References
+- Icons, syntax and grammar refer to the work submitted in 
+    - [https://www.w3.org/Submission/WSML](https://www.w3.org/Submission/WSML)
+    - [http://www.wsmo.org/wsml](http://www.wsmo.org/wsml)

@@ -9,7 +9,10 @@
       "include": "#keywordsWithNames"
     },
     {
-      "include": "#functionsWithNames"
+      "include": "#functionsPreDefined"
+    },
+    {
+      "include": "#functionsDefined"
     },
     {
       "include": "#secondaryKeywords"
@@ -46,23 +49,33 @@
         }
       ]
     },
-    "functionsWithNames": {
-      "name": "keyword.control.functionsWithNames",
+    "functionsPreDefined": {
+      "name": "keyword.control.functionsPreDefined",
       "patterns": [
         {
           "match": "(memberOf|hasValue|ofType)(\\s+)([a-zA-Z][\\w]+)(\\s*)",
           "captures": {
             "1": {
-              "name": "entity.name.function.functionsWithNames.key"
+              "name": "entity.name.function.functionsPreDefined.key"
             },
             "3": {
-              "name": "entity.name.class.functionsWithNames.value"
+              "name": "entity.name.class.functionsPreDefined.value"
             }
           }
         },
         {
-          "name": "entity.name.function.functionsWithNames.key",
+          "name": "entity.name.function.functionsPreDefined.key",
           "match": "(hasValue|ofType|impliesType)"
+        }
+      ]
+    },
+    "functionsDefined": {
+      "name": "keyword.control.functionsDefined",
+      "patterns": [
+        {
+          "begin": "(\\w+)(\\()",
+          "beginCaptures": {"1": { "name": "entity.name.function.functionsDefined.key"}},
+          "end": "(\\))"
         }
       ]
     },
@@ -70,7 +83,7 @@
       "patterns": [
         {
           "name": "keyword.secondaryKeywords.wsml",
-          "match": "\\b(blank|comment|and|or|implies|impliedBy|equivalent|neg|naf|exists|forall|false|true|assumption|capability|choreography|definedBy|effect|endNonFunctionalProperties|endnfp|ggMediator|impliesType|importsOntology|interface|nonFunctionalProperties|nfp|ooMediator|orchestration|postcondition|precondition|reflexive|sharedVariables|source|subConceptOf|subRelationOf|symmetric|target|transitive|usesMediator|usesService|wgMediator|wwMediator)\\b"
+          "match": "\\b(blank|comment|and|or|impliedBy|equivalent|neg|naf|exists|forall|false|true|assumption|capability|choreography|definedBy|effect|endNonFunctionalProperties|endnfp|ggMediator|impliesType|importsOntology|interface|nonFunctionalProperties|nfp|ooMediator|orchestration|postcondition|precondition|reflexive|sharedVariables|source|subConceptOf|subRelationOf|symmetric|target|transitive|usesMediator|usesService|wgMediator|wwMediator)\\b"
         }
       ]
     },

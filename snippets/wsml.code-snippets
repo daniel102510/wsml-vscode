@@ -1,0 +1,10 @@
+{
+    "nfp": {
+        "prefix": ["nfp"],
+        "body": ["nfp","\t${0}","endnfp"]
+    },
+    "nonFunctionalProperties": {
+        "prefix": ["nonFunctionalProperties"],
+        "body": ["nonFunctionalProperties","\t${0}","endNonFunctionalProperties"]
+    }
+}
