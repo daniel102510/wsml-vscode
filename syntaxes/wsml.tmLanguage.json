@@ -9,6 +9,9 @@
       "include": "#keywordsWithNames"
     },
     {
+      "include": "#keywords"
+    },
+    {
       "include": "#functionsPreDefined"
     },
     {
@@ -30,6 +33,14 @@
         {
           "name": "keyword.control.generalKeywords",
           "match": "\\b(wsmlVariant|namespace)\\b"
+        }
+      ]
+    },
+    "keywords": {
+      "patterns": [
+        {
+          "name": "keyword.control.keywords.key",
+          "match": "\\b(ontology|concept|instance|relation|relationinstance|axiom|goal|webservice|mediator)\\b"
         }
       ]
     },
