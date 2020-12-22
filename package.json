@@ -11,6 +11,13 @@
   "categories": [
     "Programming Languages"
   ],
+  "activationEvents": [
+    "onCommand:wsml.loadOntology",
+    "onCommand:wsml.executeQuery",
+    "onCommand:wsml.executeQueryFile",
+    "onCommand:wsml.clearOntologys"
+  ],
+  "main": "./extension.js",
   "contributes": {
     "languages": [
       {
@@ -36,6 +43,28 @@
       {
         "language": "wsml",
         "path": "./snippets/wsml.code-snippets"
+      }
+    ],
+    "commands": [
+      {
+        "title": "Midsi load a ontology",
+        "category": "WSML",
+        "command": "wsml.loadOntology"
+      },
+      {
+        "title": "Midsi execute a query",
+        "category": "WSML",
+        "command": "wsml.executeQuery"
+      },
+      {
+        "title": "Midsi execute this query file",
+        "category": "WSML",
+        "command": "wsml.executeQueryFile"
+      },
+      {
+        "title": "Midsi clear loaded ontologys",
+        "category": "WSML",
+        "command": "wsml.clearOntologys"
       }
     ]
   },
