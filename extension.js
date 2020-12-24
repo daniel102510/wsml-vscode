@@ -4,50 +4,74 @@ const vscode = require('vscode');
  * @param {vscode.ExtensionContext} context
  */
 function activate(context) {
-    const terminal = vscode.window.createTerminal(`Midsi terminal`);
-
-	disposable = vscode.commands.registerCommand('wsml.loadOntology', function () {
-        var currentlyOpenTabfilePath = vscode.window.activeTextEditor.document.fileName;
-
-        if (currentlyOpenTabfilePath.endsWith('.wsml')) {
-            terminal.show();
-            terminal.sendText(`python3 /home/daniel/Documentos/midsi/service/midsi-client.py --ontology ${currentlyOpenTabfilePath}`);
-        } else {
-            vscode.window.showInformationMessage(`This file is not a valid WSML file.`);
-        }
+    
+    disposable = vscode.commands.registerCommand('wsml.startMidsi', function () {
+        const wsmlConfig = vscode.workspace.getConfiguration('wsml')
+        const midsiPath = wsmlConfig.get('midsi.path')
+        if (midsiPath) {
+            const terminalMidsiService = vscode.window.createTerminal(`Midsi Server`);
+            terminalMidsiService.show();
+            terminalMidsiService.sendText(`cd ${midsiPath} && cd service && python3 midsi-service.py`);
+        } else vscode.window.showInformationMessage(`Not found wsml.midsi.path in configuration file`);
+    });
+    context.subscriptions.push(disposable);
         
-	});
+    disposable = vscode.commands.registerCommand('wsml.closeMidsi', function () {
+        const wsmlConfig = vscode.workspace.getConfiguration('wsml')
+        const midsiPath = wsmlConfig.get('midsi.path')
+        if (midsiPath) {
+            const terminalMidsiClient = vscode.window.createTerminal(`Midsi terminal`);
+            terminalMidsiClient.show();
+            terminalMidsiClient.sendText(`cd ${midsiPath} && cd service && python3 midsi-client.py --exit`);
+        } else vscode.window.showInformationMessage(`Not found wsml.midsi.path in configuration file`);
+    });
+    context.subscriptions.push(disposable);
+        
+    disposable = vscode.commands.registerCommand('wsml.loadOntology', function () {
+        const wsmlConfig = vscode.workspace.getConfiguration('wsml')
+        const midsiPath = wsmlConfig.get('midsi.path')
+        if (midsiPath) {
+            var currentlyOpenTabfilePath = vscode.window.activeTextEditor.document.fileName;
+
+            if (currentlyOpenTabfilePath.endsWith('.wsml')) {
+                const terminalMidsiClient = vscode.window.createTerminal(`Midsi terminal`);
+                terminalMidsiClient.show();
+                terminalMidsiClient.sendText(`cd ${midsiPath} && cd service && python3 midsi-client.py --ontology ${currentlyOpenTabfilePath}`);
+            } else vscode.window.showInformationMessage(`This file is not a valid WSML file.`);
+        } else vscode.window.showInformationMessage(`Not found wsml.midsi.path in configuration file`);
+    });
+    context.subscriptions.push(disposable);
+        
+    disposable = vscode.commands.registerCommand('wsml.executeQuery', async function () {
+        const wsmlConfig = vscode.workspace.getConfiguration('wsml')
+        const midsiPath = wsmlConfig.get('midsi.path')
+        if (midsiPath) {
+            let query = await vscode.window.showInputBox({
+                "placeHolder": "Digit the query"
+            });
+            if (query) {
+                const terminalMidsiClient = vscode.window.createTerminal(`Midsi terminal`);
+                terminalMidsiClient.show();
+                terminalMidsiClient.sendText(`cd ${midsiPath} && cd service && python3 midsi-client.py --query "${query}"`);
+            }
+        } else vscode.window.showInformationMessage(`Not found wsml.midsi.path in configuration file`);
+    });
     context.subscriptions.push(disposable);
     
-	disposable = vscode.commands.registerCommand('wsml.executeQuery', async function () {
-        let query = await vscode.window.showInputBox({
-            "placeHolder": "Digit the query"
-        });
-        if (query) {
-            terminal.show();
-            terminal.sendText(`python3 /home/daniel/Documentos/midsi/service/midsi-client.py --query "${query}"`);
-        }
-	});
-	context.subscriptions.push(disposable);
-    
-	disposable = vscode.commands.registerCommand('wsml.executeQueryFile', function () {
-        var currentlyOpenTabfilePath = vscode.window.activeTextEditor.document.fileName;
+    disposable = vscode.commands.registerCommand('wsml.executeQueryFile', function () {
+        const wsmlConfig = vscode.workspace.getConfiguration('wsml')
+        const midsiPath = wsmlConfig.get('midsi.path')
+        if (midsiPath) {
+            var currentlyOpenTabfilePath = vscode.window.activeTextEditor.document.fileName;
 
-        if (currentlyOpenTabfilePath.endsWith('.wsml')) {
-            terminal.show();
-            terminal.sendText(`python3 /home/daniel/Documentos/midsi/service/midsi-client.py --queryFile ${currentlyOpenTabfilePath}`);
-        } else {
-            vscode.window.showInformationMessage(`This file is not a valid WSML file.`);
-        }
-		
-	});
-	context.subscriptions.push(disposable);
-    
-	disposable = vscode.commands.registerCommand('wsml.clearOntologys', function () {
-        terminal.show();
-        terminal.sendText(`python3 /home/daniel/Documentos/midsi/service/midsi-client.py --clear`);
-	});
-	context.subscriptions.push(disposable);
+            if (currentlyOpenTabfilePath.endsWith('.wsml')) {
+                terminalMidsiClient.show();
+                terminalMidsiClient.sendText(`cd ${midsiPath} && cd service && python3 midsi-client.py --queryFile ${currentlyOpenTabfilePath}`);
+            } else vscode.window.showInformationMessage(`This file is not a valid WSML file.`);
+            
+        } else vscode.window.showInformationMessage(`Not found wsml.midsi.path in configuration file`);
+    });
+    context.subscriptions.push(disposable);
 }
 exports.activate = activate;
 

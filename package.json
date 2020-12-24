@@ -3,7 +3,7 @@
   "displayName": "%displayName%",
   "description": "%description%",
   "icon": "images/wsml.png",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "publisher": "DanielLima",
   "engines": {
     "vscode": "^1.45.0"
@@ -15,7 +15,8 @@
     "onCommand:wsml.loadOntology",
     "onCommand:wsml.executeQuery",
     "onCommand:wsml.executeQueryFile",
-    "onCommand:wsml.clearOntologys"
+    "onCommand:wsml.closeMidsi",
+    "onCommand:wsml.startMidsi"
   ],
   "main": "./extension.js",
   "contributes": {
@@ -45,26 +46,43 @@
         "path": "./snippets/wsml.code-snippets"
       }
     ],
+    "configuration":[
+      {
+        "title": "WSML",
+        "properties": {
+          "wsml.midsi.path": {
+            "type": "string",
+					  "default": "",
+					  "description": "Path from midsi project."
+          }
+        }
+      }
+    ],
     "commands": [
       {
-        "title": "Midsi load a ontology",
+        "title": "Midsi - Load a ontology",
         "category": "WSML",
         "command": "wsml.loadOntology"
       },
       {
-        "title": "Midsi execute a query",
+        "title": "Midsi - Execute a query",
         "category": "WSML",
         "command": "wsml.executeQuery"
       },
       {
-        "title": "Midsi execute this query file",
+        "title": "Midsi Execute this query file",
         "category": "WSML",
         "command": "wsml.executeQueryFile"
       },
       {
-        "title": "Midsi clear loaded ontologys",
+        "title": "Midsi - Close Midsi server",
         "category": "WSML",
-        "command": "wsml.clearOntologys"
+        "command": "wsml.closeMidsi"
+      },
+      {
+        "title": "Midsi - Start Midsi server",
+        "category": "WSML",
+        "command": "wsml.startMidsi"
       }
     ]
   },
