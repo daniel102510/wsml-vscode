@@ -70,7 +70,7 @@
         "command": "wsml.executeQuery"
       },
       {
-        "title": "Midsi Execute this query file",
+        "title": "Midsi - Execute this query file",
         "category": "WSML",
         "command": "wsml.executeQueryFile"
       },
