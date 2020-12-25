@@ -22,6 +22,24 @@ Provides syntax highlighting and bracket matching for WSML files. It also has in
 - You can use the commands for Midsi in the palette.
   <img src="https://github.com/devdaniellima/wsml-vscode/blob/master/images/pallet_commands.gif?raw=true" />
 
+### Example of using midsi commands
+
+If you have not yet started an instance of the midsi server, you can start using the command `WSML: Midsi - Start Midsi server`. Likewise when you are no longer using the server, just use the command `WSML: Midsi - Close Midsi server`. To clear the uploaded data just close and start right away.
+
+<img src="https://github.com/devdaniellima/wsml-vscode/blob/master/images/start_close_midsi.gif?raw=true" />
+
+With the ontology file open you can add it to the scope of the midsi with the command `WSML: Midsi - Load a ontology`.
+
+<img src="https://github.com/devdaniellima/wsml-vscode/blob/master/images/load_ontology.gif?raw=true" />
+
+To make inquiries you can use the command `WSML: Midsi - Run the query`.
+
+<img src="https://github.com/devdaniellima/wsml-vscode/blob/master/images/execute_query.gif?raw=true" />
+
+It is also possible to ask questions from `.wsml` files with a query using the command` WSML: Midsi - Run the query file`.
+
+<img src="https://github.com/devdaniellima/wsml-vscode/blob/master/images/execute_query_file.gif?raw=true" />
+
 ## Known Issues
 
 - Developing but functional.
