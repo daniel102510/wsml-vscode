@@ -40,7 +40,7 @@
       "patterns": [
         {
           "name": "keyword.control.keywords.key",
-          "match": "\\b(ontology|concept|instance|relation|relationinstance|axiom|goal|webservice|mediator)\\b"
+          "match": "\\b(ontology|concept|instance|relation|relationInstance|axiom|goal|webservice|mediator)\\b"
         }
       ]
     },
@@ -48,7 +48,7 @@
       "name": "keyword.control.keywordsWithNames",
       "patterns": [
         {
-          "match": "(ontology|concept|instance|relation|relationinstance|axiom|goal|webservice|mediator)(\\s+)(\\w+)(\\s*)",
+          "match": "(ontology|concept|instance|relation|relationInstance|axiom|goal|webservice|mediator)(\\s+)(\\w+)(\\s*)",
           "captures": {
             "1": {
               "name": "keyword.control.keywordsWithNames.key"
