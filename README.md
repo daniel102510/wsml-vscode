@@ -32,11 +32,11 @@ With the ontology file open you can add it to the scope of the midsi with the co
 
 <img src="https://github.com/devdaniellima/wsml-vscode/blob/master/images/load_ontology.gif?raw=true" />
 
-To make inquiries you can use the command `WSML: Midsi - Run the query`.
+To make inquiries you can use the command `WSML: Midsi - Execute a query`.
 
 <img src="https://github.com/devdaniellima/wsml-vscode/blob/master/images/execute_query.gif?raw=true" />
 
-It is also possible to ask questions from `.wsml` files with a query using the command` WSML: Midsi - Run the query file`.
+It is also possible to ask questions from `.wsml` files with a query using the command `WSML: Midsi - Execute this query file`.
 
 <img src="https://github.com/devdaniellima/wsml-vscode/blob/master/images/execute_query_file.gif?raw=true" />
 

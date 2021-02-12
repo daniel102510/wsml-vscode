@@ -3,7 +3,7 @@
   "displayName": "%displayName%",
   "description": "%description%",
   "icon": "images/wsml.png",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "publisher": "DanielLima",
   "engines": {
     "vscode": "^1.45.0"
